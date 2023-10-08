@@ -9,6 +9,6 @@ RUN npm install
 # Copy app files
 COPY . .
 # Expose port
-EXPOSE 3000
+EXPOSE 5173
 # Start the app
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "dev"]
