@@ -13,17 +13,6 @@ function Login() {
             console.log(err.message)
         }
     } 
-    const test = async () => {
-        try {
-            const data = await (await fetch(`${import.meta.env.VITE_BACKEND_SERVER}/a`,
-            {
-                credentials: 'include'
-            })).json()
-            console.log(data)
-        } catch (err) {
-            console.log(err.message)
-        }
-    } 
     const ping = async () => {
         try {
             const data = await (await fetch(`${import.meta.env.VITE_BACKEND_SERVER}/ping`,
@@ -50,11 +39,6 @@ function Login() {
 					onClick={handleClickActivity}
 				>
 					Get activity
-				</button >
-                <button 
-					onClick={test}
-				>
-					Test
 				</button >
                 <button 
 					onClick={ping}
