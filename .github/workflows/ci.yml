@@ -1,4 +1,4 @@
-name: CI workflow
+name: CI/CD workflow
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,3 +18,17 @@ jobs:
           node-version: 17.x
       - run: npm install
       - run: npm run build --if-present
+      # - run: npm run test
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd rideout-front
+            git pull origin main
+            git status
+            npm install --only=prod
+            npm run build --if-present
