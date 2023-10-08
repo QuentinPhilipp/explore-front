@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSearchParams, useNavigate } from 'react-router-dom';
 
 
 function StravaAuth() {
     const navigate = useNavigate();
 
-    const [token, setToken] = useState("")
     const [searchParams] = useSearchParams();
     const code = searchParams.get('code')
     const scope = searchParams.get('scope')
 
     useEffect(() => {
         console.log("Exchange code for token")
-        fetch('http://127.0.0.1:8000/exchange_token?', {
+        fetch(`${import.meta.env.VITE_BACKEND_SERVER}/exchange_token?`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
