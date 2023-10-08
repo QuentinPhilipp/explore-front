@@ -27,4 +27,4 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-            touch a.txt
+            whoami
