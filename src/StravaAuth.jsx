@@ -23,7 +23,6 @@ function StravaAuth() {
             }),
             credentials: 'include'
         })
-        .then((response) => {console.log(response)})
         .then(() => navigate("/"))
     }, [])
 
