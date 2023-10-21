@@ -15,7 +15,7 @@ function Login() {
     } 
     const ping = async () => {
         try {
-            const data = await (await fetch(`${import.meta.env.VITE_BACKEND_SERVER}/ping`,
+            const data = await (await fetch(`/ping`,
             {
                 credentials: 'include'
             })).json()
