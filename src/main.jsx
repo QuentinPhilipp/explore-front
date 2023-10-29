@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import StravaAuth from './StravaAuth';
+import Activities from './Activities';
+
 import {
     createBrowserRouter,
     RouterProvider
@@ -17,6 +19,10 @@ const router = new createBrowserRouter([
     {
         path: '/strava_auth',
         element: <StravaAuth />
+    },
+    {
+        path: '/activities',
+        element: <Activities />
     }
 ])
 

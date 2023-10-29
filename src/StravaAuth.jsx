@@ -23,7 +23,11 @@ function StravaAuth() {
             }),
             credentials: 'include'
         })
-        .then(() => navigate("/"))
+        .then((response) => response.json())
+        .then((data) => {
+            localStorage.setItem("user_id", data)
+            navigate("/");
+        });
     }, [])
 
 	return (
